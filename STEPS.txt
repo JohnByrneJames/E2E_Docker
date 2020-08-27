@@ -1,0 +1,47 @@
+E2E EXERCISE STEP RECORD FOR NOW
+
+1. GO TO : https://hub.docker.com/_/jenkins?tab=description
+
+pull the image from the official, non-deprecated image:
+
+docker pull jenkins/jenkins | Link = https://hub.docker.com/r/jenkins/jenkins
+
+2. In the documenation is says to run this line of code:
+
+docker run -p 8080:8080 -p 50000:50000 -v C:/Users/John/Docker/E2E_Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+
+Store the data in the jenkins server to a volume on the host PC so it remains persistent
+
+Port 8080 exposes the web interface
+Port 50000 gives access to a remote Java (JIRA) API
+
+3. Navigate to localhost:8080
+
+This will take you to a login page, then you need to go inside the container and navigate to a file written inside: /var/jenkins_home/secrets/initialAdminPassword to login.
+
+Enter that into the password box, continue and then proceed to install suggested plugins.
+
+4. Create first admin user
+
+Username: admin
+Password: admin
+E-mail: jbyrne@spartaglobal.com
+
+Go to Manage Jenkins> Plugin Manager > Search Docker and install > Docker 
+
+5. Restart the container so the plugin takes affect, either with gitbash or docker.
+
+Gitbash: docker <name_of_container> restart
+
+Desktop: click restart for container
+
+Log back in once its back up
+
+____
+
+
+INSTALLING JENKINS ON WINDOWS
+
+1. Run  [ java -jar jenkins.war ] - in the jenkins installation folder
+
+2.   
